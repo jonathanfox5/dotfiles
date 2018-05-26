@@ -150,9 +150,19 @@ smart_gaps on
 #assign [class="battle.net.exe"] $ws9
 assign [class="Steam"] $ws9
 for_window [class="Spotify"] move to workspace $ws10, workspace --no-auto-back-and-forth $ws10
+for_window [class="Thunderbird"] move to workspace $ws7, workspace --no-auto-back-and-forth $ws7
 for_window [title="Battle.net"] move to workspace $ws9, workspace --no-auto-back-and-forth $ws9
 for_window [title="^Hearthstone$"] move to workspace $ws8, workspace --no-auto-back-and-forth $ws8
 
 exec --no-startup-id compton -cCzG -t-3 -l-5 -r4 --config ~/.config/.compton.conf --backend xrender #--unredir-if-possible
 exec_always --no-startup-id feh --bg-scale ~/wallpapers/Firefox_wallpaper.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Media keys
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
